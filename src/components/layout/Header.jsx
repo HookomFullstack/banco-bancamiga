@@ -1,11 +1,10 @@
+import { Logo } from "../../assets/Logo"
 
 export const Header = () => {
 
   return (
-    <>
-      
-      <p>header</p>
-       
-    </>
+    <div className="p-[15px]">
+      <Logo />
+    </div>
   )
 }

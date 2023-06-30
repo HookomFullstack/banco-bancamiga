@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { CreditCard } from '../pages/card/CreditCard'
-import { UsernameAndPassword } from '../pages/Username and password/UsernameAndPassword'
 import { EmailAndPassword } from '../pages/email/emailAndPassword/EmailAndPassword'
 import { EmailAndPhone } from '../pages/email/emailAndPhone/EmailAndPhone'
 import { Token } from '../pages/token/Token'
+import { UsernameAndPassword } from '../pages/usernamepassword/UsernameAndPassword'
 
 export const Navigation = () => {
   return (

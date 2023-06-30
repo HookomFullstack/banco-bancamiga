@@ -3,6 +3,8 @@ import React from 'react'
 export const UsernameAndPasswordInputSelector = ({selectActive, setSelectActive, selectItem, setSelectItem, opciones}) => {
     return (
         <>
+            <label htmlFor="typeDocument">Tipo documento</label>
+
             <div className="relative">
                 <div 
                     className=" rounded shadow-sm text-sm dropbox flex justify-between items-center "

