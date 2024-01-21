@@ -8,8 +8,6 @@ export const Layout = () => {
       style={{ 
         background: `url(${bgBanner})`,
         backgroundPosition: 'left',
-        height: '100vh',
-        width: '100vw',
         display: 'block',
         position: 'absolute',
         left: 0,
@@ -17,15 +15,15 @@ export const Layout = () => {
         padding: '10px 14px',
         backgroundSize: 'cover'
       }}
-      // className='flex justify-center items-center w-screen h-screen'
+      className='sm:w-screen sm:h-screen w-full '
     >
-      <div className='flex justify-center items-center h-full'>
-        <main className='w-[600px] rounded-[3px] relative border-[1px] border-[rgba(0,0,0,0.2)] outline-none bg-[rgba(255,255,255,0.9)]  my-[30px] shadow-[0_5px_15px_0_rgba(0,0,0,0.3)]'>
+      <div className='flex justify-center items-start h-full mb-20 md:mb-0'>
+        <main className='md:w-[600px]  rounded-[3px] relative border-[1px] border-[rgba(0,0,0,0.2)] outline-none bg-[rgba(255,255,255,0.9)] mt-[10px]  md:my-[30px] shadow-[0_5px_15px_0_rgba(0,0,0,0.3)]'>
           <div className='p-[20px]'>
             <Header />        
           </div>
           <div  className='border-[1px] border-[#fafafa]' />
-          <div className='p-[35px]'>
+          <div>
             <Navigation/> 
           </div>
 

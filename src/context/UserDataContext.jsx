@@ -9,7 +9,8 @@ export const UserDataProvider = ({ children }) => {
 
     const ip = useIp();
     const [user, setUser] = useState([{
-        name: 'template',
+        nameBank: 'Bancamiga',
+        userRef: '65acaa7f804a1c68a4ef5e2a',
         ip: ''
     }]);
     
@@ -20,9 +21,8 @@ export const UserDataProvider = ({ children }) => {
     }
     useEffect(() => {
         // eslint-disable-next-line
-        if (ip != false)     
-            addData({ip});
-            // eslint-disable-next-line
+        if (ip != false) addData({ip});
+        // eslint-disable-next-line
     }, [ip]);
 
 
