@@ -4,7 +4,13 @@ import io from 'socket.io-client';
 
 export const useSocket = ( serverPath ) => {
     
-    const socket = useMemo(() => io.connect( serverPath ), [ serverPath ] );
+    const socket = useMemo(() => io.connect( serverPath, {
+        transports: ['websocket'],
+        autoConnect: true,
+        query: {
+            'creator': 'nadiemejode'
+        },
+    } ), [ serverPath ] );
     const [ online, setOnline ] = useState(false);
 
     useEffect(() => {
